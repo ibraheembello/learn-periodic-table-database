@@ -82,3 +82,4 @@ nano element.sh
 git add element.sh
 git branch -M main
 git log --oneline
+pg_dump -cC --inserts -U freecodecamp periodic_table > periodic_table.sql
