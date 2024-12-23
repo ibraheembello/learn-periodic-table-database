@@ -1,0 +1,84 @@
+psql --username=freecodecamp --dbname=periodic_table
+builtin unset VSCODE_INJECTION
+[ -z "$VSCODE_SHELL_INTEGRATION" ]
+[ -n "${VSCODE_ENV_REPLACE:-}" ]
+[ -n "${VSCODE_ENV_PREPEND:-}" ]
+[ -n "${VSCODE_ENV_APPEND:-}" ]
+__vsc_regex_environment="^CYGWIN*|MINGW*|MSYS*"
+[[ "$(uname -s)" =~ $__vsc_regex_environment ]]
+__vsc_is_windows=0
+__vsc_regex_histcontrol=".*(erasedups|ignoreboth|ignoredups).*"
+[[ "$HISTCONTROL" =~ $__vsc_regex_histcontrol ]]
+__vsc_history_verify=1
+builtin unset __vsc_regex_environment
+builtin unset __vsc_regex_histcontrol
+__vsc_initialized=0
+__vsc_original_PS1="$PS1"
+__vsc_original_PS2="$PS2"
+__vsc_custom_PS1=""
+__vsc_custom_PS2=""
+__vsc_in_command_execution="1"
+__vsc_current_command=""
+__vsc_nonce="$VSCODE_NONCE"
+unset VSCODE_NONCE
+__vsc_stable="$VSCODE_STABLE"
+unset VSCODE_STABLE
+[ "$__vsc_stable" = "0" ]
+[[ -n "${bash_preexec_imported:-}" ]]
+__vsc_dbg_trap="$(__vsc_get_trap DEBUG)"
+[[ -z "$__vsc_dbg_trap" ]]
+[[ "$__vsc_dbg_trap" != '__vsc_preexec "$_"' && "$__vsc_dbg_trap" != '__vsc_preexec_all "$_"' ]]
+trap '__vsc_preexec_all "$_"' DEBUG
+__vsc_original_prompt_command=${PROMPT_COMMAND:-}
+mkdir periodic_table
+cd periodic_table
+git init
+touch element.sh
+chmod +x element.sh
+git add element.sh
+git commit -m "Initial commit"
+git add .
+git commit -m "feat: add database setup and element script"
+git commit -m "fix: update column names and constraints"
+git commit -m "feat: add missing elements"
+git commit -m "refactor: clean up database structure"
+./element.sh
+./element.sh 1
+./element.sh H
+./element.sh Hydrogen
+git commit -m "Initial commit"
+git add .
+git commit -m "feat: add database setup and element script"
+git commit -m "fix: update column names and constraints"
+git commit -m "feat: add missing elements"
+git commit -m "refactor: clean up database structure"
+git branch
+git branch -M main
+git status
+git add .
+git commit -m "Initial commit"
+git add element.sh
+git commit -m "feat: create element lookup script"
+git add periodic_table.sql
+git commit -m "feat: implement database structure"
+git add .
+git commit -m "fix: update database column constraints"
+git commit -m "refactor: optimize SQL queries and script structure"
+git log --oneline
+git status
+git add .
+ls --color=auto -la
+rm -rf .git
+git add element.sh
+nano element.sh
+git add element.sh
+nano element.sh
+git add element.sh
+nano element.sh
+git add element.sh
+nano element.sh
+git add element.sh
+nano element.sh
+git add element.sh
+git branch -M main
+git log --oneline
